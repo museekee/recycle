@@ -1,2 +1,2 @@
-# resycle
+# recycle
 NoJam Recycle Game
