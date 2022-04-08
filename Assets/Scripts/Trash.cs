@@ -20,7 +20,7 @@ public class Trash : MonoBehaviour
             string Tag = Trashes.Trash[kindRandom].Tag; // 태그 즉 종류
             int Amount = Trashes.Trash[kindRandom].Amount; // 태그의 파일 수
             int FileRandom = Random.Range(0, Amount); // 파일의 랜덤
-            if (Amount == 0)
+            if (!File.Exists($"Assets/Resources/Trashes/{Tag}{FileRandom}.png"))
             {
                 banbok++;
                 continue;

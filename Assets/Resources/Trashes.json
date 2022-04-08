@@ -14,15 +14,15 @@
         },
         {
             "Tag": "PaperPack",
-            "Amount": 0
+            "Amount": 1
         },
         {
             "Tag": "Glass",
-            "Amount": 0
+            "Amount": 1
         },
         {
             "Tag": "Plastic",
-            "Amount": 1
+            "Amount": 2
         },
         {
             "Tag": "WaterPlastic",
@@ -34,7 +34,7 @@
         },
         {
             "Tag": "Trash",
-            "Amount": 3
+            "Amount": 5
         },
         {
             "Tag": "Food",
