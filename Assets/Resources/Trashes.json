@@ -1,0 +1,54 @@
+{
+    "Trash": [
+        {
+            "Tag": "Vinil",
+            "Amount": 2
+        },
+        {
+            "Tag": "Can",
+            "Amount": 0
+        },
+        {
+            "Tag": "Paper",
+            "Amount": 0
+        },
+        {
+            "Tag": "PaperPack",
+            "Amount": 0
+        },
+        {
+            "Tag": "Glass",
+            "Amount": 0
+        },
+        {
+            "Tag": "Plastic",
+            "Amount": 1
+        },
+        {
+            "Tag": "WaterPlastic",
+            "Amount": 1
+        },
+        {
+            "Tag": "Pet",
+            "Amount": 0
+        },
+        {
+            "Tag": "Trash",
+            "Amount": 3
+        },
+        {
+            "Tag": "Food",
+            "Amount": 1
+        },
+        {
+            "Tag": "Viastic",
+            "Amount": 1
+        }
+    ],
+    "Percentage": {
+        "l50l": [
+            "WaterPlastic0",
+            "Plastic0"
+        ]
+    }
+}
