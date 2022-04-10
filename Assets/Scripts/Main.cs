@@ -76,11 +76,11 @@ public class Main : MonoBehaviour, IBeginDragHandler, IDragHandler
         Destroy(this);
         Destroy(this.gameObject);
         if (o.name == $"{this.tag}Can") {
-            score.PlaySuccessAudio();
+            if (PlayerPrefs.GetInt("BGSOn") == 1) score.PlaySuccessAudio();
             score.Success++;
         }
         else {
-            score.PlayFailAudio();
+            if (PlayerPrefs.GetInt("BGSOn") == 1) score.PlayFailAudio();
             score.Fail++;
         }
         // GameObject.Find("MainUI").GetComponent<Trash>().MakeTrash("Vinil");

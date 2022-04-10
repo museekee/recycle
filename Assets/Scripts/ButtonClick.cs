@@ -7,6 +7,6 @@ using UnityEngine.SceneManagement;
 public class ButtonClick : MonoBehaviour
 {
     public void OnClickSetting() {
-        SceneManager.LoadScene("SettingScene");
+        GameObject.Find("SettingUI").GetComponent<Canvas>().gameObject.SetActive(true);
     }
 }

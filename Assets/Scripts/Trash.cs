@@ -10,8 +10,11 @@ using System.Linq;
 [System.Serializable]
 public class Trash : MonoBehaviour
 {
+    public static Trash Instance;
+    
     private void Start()
     {
+        GameObject.Find("SettingUI").GetComponent<Canvas>().gameObject.SetActive(false);
         string TrashesJson = Resources.Load("Trashes").ToString();
         var Trashes = JsonUtility.FromJson<TrashArrayType>(TrashesJson);
         int banbok = 50;
