@@ -68,17 +68,21 @@ public class Main : MonoBehaviour, IBeginDragHandler, IDragHandler
                 mDrag = "Left";
                 return;
             case "Water":
-                //o.gameObject.name = "Plastic0";
-                //o.gameObject.tag = "Plastic";
                 this.gameObject.name = this.name.ToString().Replace("Water", "");
                 this.gameObject.tag = this.tag.Replace("Water", "");
-                this.gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>($"Trashes/{this.name.Replace("Water", "")}");
+                this.gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>($"Trashes/{this.name}");
                 return;
         };
         Destroy(this);
         Destroy(this.gameObject);
-        if (o.name == $"{this.tag}Can") score.Success++;
-        else score.Fail++;
+        if (o.name == $"{this.tag}Can") {
+            score.PlaySuccessAudio();
+            score.Success++;
+        }
+        else {
+            score.PlayFailAudio();
+            score.Fail++;
+        }
         // GameObject.Find("MainUI").GetComponent<Trash>().MakeTrash("Vinil");
         // ^ 테스트용
     }

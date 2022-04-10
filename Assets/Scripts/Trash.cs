@@ -51,7 +51,7 @@ public class Trash : MonoBehaviour
     {
         TopBtm = TopBtm == null ? "" : TopBtm;
         var canvas = GameObject.Find("MainUI").GetComponent<Canvas>();
-        GameObject imgObject = new GameObject($"{Tag}{RandomNumber}{TopBtm}"); // 오브젝트 생성
+        GameObject imgObject = new GameObject($"{Tag}/{RandomNumber}{TopBtm}"); // 오브젝트 생성
         imgObject.tag = Tag;
         imgObject.AddComponent<Main>();
         imgObject.AddComponent<BoxCollider2D>();
