@@ -20,7 +20,7 @@ public class Trash : MonoBehaviour
             string Tag = Trashes.Trash[kindRandom].Tag; // 태그 즉 종류
             int Amount = Trashes.Trash[kindRandom].Amount; // 태그의 파일 수
             int FileRandom = Random.Range(0, Amount); // 파일의 랜덤
-            if (!File.Exists($"Assets/Resources/Trashes/{Tag}{FileRandom}.png"))
+            if (!File.Exists($"Assets/Resources/Trashes/{Tag}/{FileRandom}.png"))
             {
                 banbok++;
                 continue;
@@ -41,10 +41,10 @@ public class Trash : MonoBehaviour
         float xRandom = UnityEngine.Random.Range(-300f, 300f);
         float yRandom = UnityEngine.Random.Range(-100f, 100f);
         if (Tag == "Viastic") {
-            MakeTrashFunc(RandomNumber, "Btm", "Plastic", xRandom, yRandom, $"Trashes/Viastic{RandomNumber}Btm");
-            MakeTrashFunc(RandomNumber, "Top", "Vinil", xRandom, yRandom, $"Trashes/Viastic{RandomNumber}Top");
+            MakeTrashFunc(RandomNumber, "Btm", "Plastic", xRandom, yRandom, $"Trashes/Viastic/{RandomNumber}Btm");
+            MakeTrashFunc(RandomNumber, "Top", "Vinil", xRandom, yRandom, $"Trashes/Viastic/{RandomNumber}Top");
         }
-        else MakeTrashFunc(RandomNumber, null, Tag, xRandom, yRandom, $"Trashes/{Tag}{RandomNumber}");
+        else MakeTrashFunc(RandomNumber, null, Tag, xRandom, yRandom, $"Trashes/{Tag}/{RandomNumber}");
     }
 
     private void MakeTrashFunc(int RandomNumber, string TopBtm, string Tag, float x, float y, string ImageAddress)
