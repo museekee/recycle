@@ -18,6 +18,11 @@
 
 모두 ./Assets/Resources/Fonts 에 존재합니다.
 
+## 포함된 효과음
+### https://github.com/JJoriping/KKuTu
+    - fail.mp3
+    - success.mp3
+
 ## 도움말
 ### 쓰레기 추가
 - 쓰레기를 추가 하려면 Trashes.json의 해당하는 Tag(쓰레기 종류)를 찾은 후 Amount를 1 증가시켜주세요.
