@@ -56,6 +56,7 @@ public class Main : MonoBehaviour, IBeginDragHandler, IDragHandler
         // 아 벽뚫기 안 막아-2
         // 여기서 this는 드래그 이벤트?고 this.gameObject는 그 Image인듯.-1
         Score score = GameObject.Find("MainUI").GetComponent<Score>();
+        AudioManager AM = GameObject.Find("MainUI").GetComponent<AudioManager>();
         switch (o.name) {
             case "RightWall":
                 mDrag = "Right";
@@ -64,19 +65,22 @@ public class Main : MonoBehaviour, IBeginDragHandler, IDragHandler
                 mDrag = "Left";
                 return;
             case "Water":
-                this.gameObject.name = this.name.ToString().Replace("Water", "");
-                this.gameObject.tag = this.tag.Replace("Water", "");
-                this.gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>($"Trashes/{this.name}");
+                if (this.gameObject.name.Contains("Water")) {
+                    this.gameObject.name = this.name.ToString().Replace("Water", "");
+                    this.gameObject.tag = this.tag.Replace("Water", "");
+                    this.gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>($"Trashes/{this.name}");
+                    if (PlayerPrefs.GetInt("BGSOn") == 1) AM.PlayWaterAudio();
+                }
                 return;
         };
         Destroy(this);
         Destroy(this.gameObject);
         if (o.name == $"{this.tag}Can") {
-            if (PlayerPrefs.GetInt("BGSOn") == 1) score.PlaySuccessAudio();
+            if (PlayerPrefs.GetInt("BGSOn") == 1) AM.PlaySuccessAudio();
             score.Success++;
         }
         else {
-            if (PlayerPrefs.GetInt("BGSOn") == 1) score.PlayFailAudio();
+            if (PlayerPrefs.GetInt("BGSOn") == 1) AM.PlayFailAudio();
             score.Fail++;
         }
         // GameObject.Find("MainUI").GetComponent<Trash>().MakeTrash("Vinil");

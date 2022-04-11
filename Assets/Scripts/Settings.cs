@@ -20,20 +20,15 @@ public class Settings : MonoBehaviour
         SetObj();
         #endregion
     }
-
-    #region 버튼들
-    public void OnClickReset() {
-        PlayerPrefs.SetInt("BGSOn", 1);
-        PlayerPrefs.SetInt("BGMOn", 1);
-        SetObj();
-    }
-    public void OnClickSave() {
+    
+    public void OnBGSChanged()
+    {
         PlayerPrefs.SetInt("BGSOn", B2I(BGSToggle.isOn));
-        PlayerPrefs.SetInt("BGMOn", B2I(BGMToggle.isOn));
-        SceneManager.LoadScene("MainScene");
     }
-    #endregion
-
+    public void OnBGMChanged()
+    {
+        PlayerPrefs.SetInt("BGMOn", B2I(BGMToggle.isOn));
+    }
     private void SetObj() {
         BGSToggle.isOn = I2B(PlayerPrefs.GetInt("BGSOn"));
         BGMToggle.isOn = I2B(PlayerPrefs.GetInt("BGMOn"));
