@@ -14,7 +14,6 @@ public class Trash : MonoBehaviour
     
     private void Start()
     {
-        GameObject.Find("SettingUI").GetComponent<Canvas>().gameObject.SetActive(false);
         string TrashesJson = Resources.Load("Trashes").ToString();
         var Trashes = JsonUtility.FromJson<TrashArrayType>(TrashesJson);
         int banbok = 50;

@@ -32,11 +32,7 @@ using UnityEngine.EventSystems;
 public class Main : MonoBehaviour, IBeginDragHandler, IDragHandler
 {
     #region GlobalVariable
-    private Text SuccessText;
-    private Text FailText;
-    private static Vector2 DefaultPos;
     private static string mDrag = "true";
-    private static GameObject canvas;
     #endregion
 
     void IBeginDragHandler.OnBeginDrag(PointerEventData eventData)

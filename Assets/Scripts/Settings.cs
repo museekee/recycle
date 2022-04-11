@@ -32,9 +32,6 @@ public class Settings : MonoBehaviour
         PlayerPrefs.SetInt("BGMOn", B2I(BGMToggle.isOn));
         SceneManager.LoadScene("MainScene");
     }
-    public void OnClickCancel() {
-        SceneManager.LoadScene("MainScene");
-    }
     #endregion
 
     private void SetObj() {
