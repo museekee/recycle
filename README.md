@@ -20,8 +20,10 @@
 
 ## 포함된 효과음
 ### https://github.com/JJoriping/KKuTu
-    fail.mp3
-    success.mp3
+- fail.mp3 (fail.mp3)
+- success.mp3 (missing.mp3)
+- click.mp3 (k.mp3)
+    
 
 ## 도움말
 ### 쓰레기 추가

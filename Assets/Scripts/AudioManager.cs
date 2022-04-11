@@ -9,13 +9,14 @@ public class AudioManager : MonoBehaviour
     [SerializeField] public AudioClip FailAudio;
     [SerializeField] public AudioClip SuccessAudio;
     [SerializeField] public AudioClip WaterAudio;
+    [SerializeField] public AudioClip ClickAudio;
     #endregion
 
     void Start()
     {
         audioSource = gameObject.GetComponent<AudioSource>();
     }
-    public void PlayBGS(string name)
+    public void PlayBGS(string name = "Click")
     {
         if (PlayerPrefs.GetInt("BGSOn") == 1){
             switch (name) {
@@ -29,6 +30,10 @@ public class AudioManager : MonoBehaviour
                     break;
                 case "Water":
                     audioSource.clip = WaterAudio;
+                    audioSource.Play();
+                    break;
+                case "Click":
+                    audioSource.clip = ClickAudio;
                     audioSource.Play();
                     break;
             }
