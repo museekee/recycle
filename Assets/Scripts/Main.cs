@@ -69,18 +69,18 @@ public class Main : MonoBehaviour, IBeginDragHandler, IDragHandler
                     this.gameObject.name = this.name.ToString().Replace("Water", "");
                     this.gameObject.tag = this.tag.Replace("Water", "");
                     this.gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>($"Trashes/{this.name}");
-                    if (PlayerPrefs.GetInt("BGSOn") == 1) AM.PlayWaterAudio();
+                    if (PlayerPrefs.GetInt("BGSOn") == 1) AM.PlayBGS("Water");
                 }
                 return;
         };
         Destroy(this);
         Destroy(this.gameObject);
         if (o.name == $"{this.tag}Can") {
-            if (PlayerPrefs.GetInt("BGSOn") == 1) AM.PlaySuccessAudio();
+            AM.PlayBGS("Success");
             score.Success++;
         }
         else {
-            if (PlayerPrefs.GetInt("BGSOn") == 1) AM.PlayFailAudio();
+            if (PlayerPrefs.GetInt("BGSOn") == 1) AM.PlayBGS("Fail");
             score.Fail++;
         }
         // GameObject.Find("MainUI").GetComponent<Trash>().MakeTrash("Vinil");

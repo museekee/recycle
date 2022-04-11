@@ -15,16 +15,23 @@ public class AudioManager : MonoBehaviour
     {
         audioSource = gameObject.GetComponent<AudioSource>();
     }
-    public void PlayFailAudio() {
-        audioSource.clip = FailAudio;
-        audioSource.Play();
-    }
-    public void PlaySuccessAudio() {
-        audioSource.clip = SuccessAudio;
-        audioSource.Play();
-    }
-    public void PlayWaterAudio() {
-        audioSource.clip = WaterAudio;
-        audioSource.Play();
+    public void PlayBGS(string name)
+    {
+        if (PlayerPrefs.GetInt("BGSOn") == 1){
+            switch (name) {
+                case "Fail":
+                    audioSource.clip = FailAudio;
+                    audioSource.Play();
+                    break;
+                case "Success":
+                    audioSource.clip = SuccessAudio;
+                    audioSource.Play();
+                    break;
+                case "Water":
+                    audioSource.clip = WaterAudio;
+                    audioSource.Play();
+                    break;
+            }
+        }
     }
 }
