@@ -56,6 +56,7 @@ public class Main : MonoBehaviour, IBeginDragHandler, IDragHandler
         // 아 벽뚫기 안 막아-2
         // 여기서 this는 드래그 이벤트?고 this.gameObject는 그 Image인듯.-1
         Score score = GameObject.Find("MainUI").GetComponent<Score>();
+        Trash trash = GameObject.Find("MainUI").GetComponent<Trash>();
         AudioManager AM = GameObject.Find("MainUI").GetComponent<AudioManager>();
         switch (o.name) {
             case "RightWall":
@@ -69,7 +70,7 @@ public class Main : MonoBehaviour, IBeginDragHandler, IDragHandler
                     this.gameObject.name = this.name.ToString().Replace("Water", "");
                     this.gameObject.tag = this.tag.Replace("Water", "");
                     this.gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>($"Trashes/{this.name}");
-                    if (PlayerPrefs.GetInt("BGSOn") == 1) AM.PlayBGS("Water");
+                    AM.PlayBGS("Water");
                 }
                 return;
         };
@@ -80,9 +81,10 @@ public class Main : MonoBehaviour, IBeginDragHandler, IDragHandler
             score.Success++;
         }
         else {
-            if (PlayerPrefs.GetInt("BGSOn") == 1) AM.PlayBGS("Fail");
+            AM.PlayBGS("Fail");
             score.Fail++;
         }
+        trash.TrashCount--;
         // GameObject.Find("MainUI").GetComponent<Trash>().MakeTrash("Vinil");
         // ^ 테스트용
     }

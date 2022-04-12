@@ -10,35 +10,47 @@ using System.Linq;
 [System.Serializable]
 public class Trash : MonoBehaviour
 {
-    public static Trash Instance;
-    
+    [SerializeField] GameObject Congrats;
+    public int TrashCount = 0;
+    private bool OnResult = false;
+    public int realBanbok;
+    private void FixedUpdate() {
+        if (TrashCount == 0 && OnResult == false)
+        {
+            Congrats.SetActive(true);
+            GameObject.Find("Congratulation").GetComponent<Result>().Show();
+            Debug.Log("안녕");
+            OnResult = true;
+        }
+    }
     private void Start()
     {
         string TrashesJson = Resources.Load("Trashes").ToString();
         var Trashes = JsonUtility.FromJson<TrashArrayType>(TrashesJson);
-        int banbok = 50;
+        int banbok = 2;
         for (int i = 0; i < banbok; i++) {
             int kindRandom = Random.Range(0, Trashes.Trash.Length); // 종류의 랜덤
             string Tag = Trashes.Trash[kindRandom].Tag; // 태그 즉 종류
             int Amount = Trashes.Trash[kindRandom].Amount; // 태그의 파일 수
             int FileRandom = Random.Range(0, Amount); // 파일의 랜덤
-            if (!File.Exists($"Assets/Resources/Trashes/{Tag}/{FileRandom}.png"))
+            if (Resources.Load($"Trashes/{Tag}/{FileRandom}") != null)
             {
-                banbok++;
-                continue;
-            }
-            else {
                 if (Trashes.Percentage.l50l.Contains($"{Tag}{FileRandom}")) 
                 {
-                    if (Random.Range(0, 101) < 50) MakeTrash(Tag, Amount, FileRandom);
+                    if (Random.Range(0, 101) < 50) MakeTrash(Tag, FileRandom);
                     else banbok++; continue;
                 }
-                else MakeTrash(Tag, Amount, FileRandom);
+                else MakeTrash(Tag, FileRandom);
+                realBanbok++;
+                continue;
             }
+            if (banbok > 1000) return; // 만에하나 반복이 1000이 넘어가면 반복을 중단하여 에디터의 응답없음이나 프로그램의 응답없음을 방지
+            banbok++;
+            continue;
         };
     }
 
-    private void MakeTrash(string Tag, int Amount, int RandomNumber)
+    private void MakeTrash(string Tag, int RandomNumber)
     {
         float xRandom = UnityEngine.Random.Range(-300f, 300f);
         float yRandom = UnityEngine.Random.Range(-100f, 100f);
@@ -71,5 +83,6 @@ public class Trash : MonoBehaviour
         Image image = imgObject.AddComponent<Image>(); // 안의 이미지
         image.sprite = Resources.Load<Sprite>(ImageAddress);
         imgObject.transform.SetParent(Panel);
+        TrashCount++;
     }
 }
