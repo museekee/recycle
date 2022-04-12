@@ -1,4 +1,4 @@
-# **[[다운로드]](https://github.com/moremi-kr/recycle/releases/tag/v0.1.1)**
+# **[[다운로드]](https://github.com/museekee/recycle/releases/tag/v0.2.0)**
 # Trash
 - 쓰레기 버리는 게임입니다.
 
