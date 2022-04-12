@@ -9,9 +9,9 @@ public class Result : MonoBehaviour
     {
         Trash trash = GameObject.Find("MainUI").GetComponent<Trash>();
         Score score = GameObject.Find("MainUI").GetComponent<Score>();
-        Debug.Log(trash.realBanbok);
-        Debug.Log(score.Success);
-        GameObject.Find("GaugeText").GetComponent<Text>().text = $"{((100 / trash.realBanbok) * score.Success)}%";
+        float Percentage = (100 / trash.realBanbok) * score.Success;
+        GameObject.Find("GaugeText").GetComponent<Text>().text = $"{Percentage}%";
+        GameObject.Find("Gauge").GetComponent<Image>().fillAmount = Percentage / 100;
         this.gameObject.SetActive(true);
     }
 }
