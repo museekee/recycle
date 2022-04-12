@@ -52,7 +52,7 @@ public class Trash : MonoBehaviour
     private void MakeTrashFunc(int RandomNumber, string TopBtm, string Tag, float x, float y, string ImageAddress)
     {
         TopBtm = TopBtm == null ? "" : TopBtm;
-        var canvas = GameObject.Find("MainUI").GetComponent<Canvas>();
+        Transform Panel = GameObject.Find("Trashes").transform; // Panel의 Transform
         GameObject imgObject = new GameObject($"{Tag}/{RandomNumber}{TopBtm}"); // 오브젝트 생성
         imgObject.tag = Tag;
         imgObject.AddComponent<Main>();
@@ -63,13 +63,13 @@ public class Trash : MonoBehaviour
         //rigidBody2D.constraints = RigidbodyConstraints2D.FreezePosition;
 
         RectTransform trans = imgObject.AddComponent<RectTransform>(); // 사이즈 같은거..?
-        trans.transform.SetParent(canvas.transform); // 부모 선택
+        trans.transform.SetParent(Panel);
         trans.localScale = Vector3.one;
         trans.anchoredPosition = new Vector2(x, y); // 위치
         trans.sizeDelta= new Vector2(75, 75); // 크기
         
         Image image = imgObject.AddComponent<Image>(); // 안의 이미지
         image.sprite = Resources.Load<Sprite>(ImageAddress);
-        imgObject.transform.SetParent(canvas.transform);
+        imgObject.transform.SetParent(Panel);
     }
 }
