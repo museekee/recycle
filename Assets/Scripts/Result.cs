@@ -6,13 +6,21 @@ using UnityEngine.SceneManagement;
 
 public class Result : MonoBehaviour
 {
+    [SerializeField] Canvas MainUI;
+    [SerializeField] Image Gauge;
+    [SerializeField] Text GaugeText;
+    [SerializeField] Text SuccessText;
+    [SerializeField] Text FailText;
+    
     public void Show()
     {
-        Trash trash = GameObject.Find("MainUI").GetComponent<Trash>();
-        Score score = GameObject.Find("MainUI").GetComponent<Score>();
+        Trash trash = MainUI.GetComponent<Trash>();
+        Score score = MainUI.GetComponent<Score>();
         float Percentage = (100 / trash.realBanbok) * score.Success;
-        GameObject.Find("GaugeText").GetComponent<Text>().text = $"{Percentage}%";
-        GameObject.Find("Gauge").GetComponent<Image>().fillAmount = Percentage / 100;
+        GaugeText.text = $"{Percentage}%";
+        Gauge.fillAmount = Percentage / 100;
+        SuccessText.text = $"{score.Success}개";
+        FailText.text = $"{score.Fail}개";
         this.gameObject.SetActive(true);
     }
     public void Restart()
