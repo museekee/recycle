@@ -11,16 +11,19 @@ public class Result : MonoBehaviour
     [SerializeField] Text GaugeText;
     [SerializeField] Text SuccessText;
     [SerializeField] Text FailText;
+    [SerializeField] Text TimeText;
     
     public void Show()
     {
         Trash trash = MainUI.GetComponent<Trash>();
         Score score = MainUI.GetComponent<Score>();
+        score.PlayingTimer = false;
         float Percentage = (100 / trash.realBanbok) * score.Success;
         GaugeText.text = $"{Percentage}%";
         Gauge.fillAmount = Percentage / 100;
         SuccessText.text = $"{score.Success}개";
         FailText.text = $"{score.Fail}개";
+        TimeText.text = score.nowTime;
         this.gameObject.SetActive(true);
     }
     public void Restart()

@@ -11,19 +11,23 @@
 - 소스코드는 ./Assets/Scripts 에 있습니다.
 - 사실 제가 분리수거를 잘 몰라서 쉬워요.
 
-## 포함 된 폰트
+## 출처
+### 포함 된 폰트
 - NEXONLv1GothicBold.ttf
 - NEXONLv1GothicLight.ttf
 - NEXONLv1GothicRegular.ttf
 
 모두 ./Assets/Resources/Fonts 에 존재합니다.
 
-## 포함된 효과음
-### https://github.com/JJoriping/KKuTu
+### 포함 된 효과음
+#### https://github.com/JJoriping/KKuTu
 - fail.mp3 (fail.mp3)
 - success.mp3 (missing.mp3)
 - click.mp3 (k.mp3)
-    
+
+### 포함된 이미지
+#### https://gongu.copyright.or.kr
+- [시계 (LP1609270030_임슬기_시계.jpg)](https://gongu.copyright.or.kr/gongu/wrt/wrt/view.do?wrtSn=13049278&menuNo=200025)
 
 ## 도움말
 ### 쓰레기 추가
