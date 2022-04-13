@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Result : MonoBehaviour
 {
@@ -13,5 +14,13 @@ public class Result : MonoBehaviour
         GameObject.Find("GaugeText").GetComponent<Text>().text = $"{Percentage}%";
         GameObject.Find("Gauge").GetComponent<Image>().fillAmount = Percentage / 100;
         this.gameObject.SetActive(true);
+    }
+    public void Restart()
+    {
+        SceneManager.LoadScene("Mainscene");
+    }
+    public void Exit()
+    {
+        Application.Quit();
     }
 }

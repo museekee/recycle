@@ -19,7 +19,6 @@ public class Trash : MonoBehaviour
         {
             Congrats.SetActive(true);
             GameObject.Find("Congratulation").GetComponent<Result>().Show();
-            Debug.Log("안녕");
             OnResult = true;
         }
     }
@@ -27,7 +26,7 @@ public class Trash : MonoBehaviour
     {
         string TrashesJson = Resources.Load("Trashes").ToString();
         var Trashes = JsonUtility.FromJson<TrashArrayType>(TrashesJson);
-        int banbok = 50;
+        int banbok = 2;
         for (int i = 0; i < banbok; i++) {
             int kindRandom = Random.Range(0, Trashes.Trash.Length); // 종류의 랜덤
             string Tag = Trashes.Trash[kindRandom].Tag; // 태그 즉 종류
